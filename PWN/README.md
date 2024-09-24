@@ -163,7 +163,7 @@ p.sendline(b'1')
 p.sendline(payload)
 
 p.recvuntil(b'Your Choice, senpai: ')
-p.sendline(b'1')
+p.sendline(b'3')
 
 p.interactive()
 
