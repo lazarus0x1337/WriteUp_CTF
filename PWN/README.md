@@ -1,7 +1,7 @@
 # pointeroverflowctf - Exploit 200 "Overrun and Outdone"
 ## Table of Contents
 - [Introduction](#introduction)
-- [Source Code](#source-code)
+- [Code Analysis](#code-analysis)
 - [Exploit Development](#exploit-development)
 - [Usage](#usage)
 - [Results](#results)
@@ -16,6 +16,9 @@
 The User Record application has a buffer overflow vulnerability due to improper handling of user input. The `name` field in the `user_record` struct has a fixed size, which allows for an overflow when a longer string is provided. This exploit demonstrates how to manipulate the memory layout to change the `id` variable.
 
 ## Code Analysis
+
+To gain privileged shell access in the User Record application, we target the ROOT_ID defined as 80085, The structure user_record has a total size of 32 bytes so with no padding, allowing us to exploit a buffer overflow in the name field to overwrite the adjacent id field directly. By crafting an input that exceeds the buffer size, we can set the id to 80085, granting access to the debug shell.
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -111,8 +114,7 @@ int main() {
 			printf("Eh? That's not an option, silly %s! (⁄ ⁄>⁄ ▽ ⁄<⁄)\n", u.name);
 		}
 	}
-
 	return 0;
-
 }
 ```
+
