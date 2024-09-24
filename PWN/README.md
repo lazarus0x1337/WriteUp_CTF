@@ -168,7 +168,8 @@ p.sendline(b'3')
 p.interactive()
 
 ```
-/$ python3 exploit200.py
+## Usage
+* python3 exploit200.py
 <p align="center">
  <img src="images/exploit200_script.png" alt="expliot">
  </p>
