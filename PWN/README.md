@@ -5,9 +5,7 @@
 - [Debugging](#Debugging)
 - [Exploit Development](#exploit-development)
 - [Usage](#usage)
-- [Results](#results)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction
 <p align="center">
@@ -175,3 +173,6 @@ p.interactive()
  </p>
 
 
+## Conclusion
+
+This challenge highlights the importance of input validation in C programming. Buffer overflows can lead to severe security vulnerabilities, making it crucial for developers to implement proper checks on input sizes and memory usage. Understanding memory layout and endianness is vital for recognizing and exploiting such vulnerabilities.
