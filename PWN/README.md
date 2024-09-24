@@ -169,3 +169,7 @@ p.interactive()
 
 ```
 $ python3 exploit200.py 
+
+<p align="center">
+ <img src="images/exploit200_script.jpg alt="challenge">
+ </p>
